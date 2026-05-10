@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços | Performance Film</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    height:110px;
+    padding:0 60px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,123,0,.22);
+    display:flex;
+    align-items:center;
+}
+
+.nav-container{
+    width:100%;
+    max-width:1550px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#logoMenu{
+    width:150px;
+    display:block;
+    cursor:pointer;
+    object-fit:contain;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:55px;
+    list-style:none;
+}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:700;
+    transition:.3s;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:#ff7b00;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ff7b00;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.nav-btn{
+    justify-self:end;
+    width:190px;
+    height:54px;
+    border-radius:50px;
+    background:#ff7b00;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:#ff9326;
+    transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+.mobile-actions{
+    display:none;
+}
+
+.menu-toggle{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:280px;
+    height:100vh;
+    background:linear-gradient(180deg,#140b04,#05070a);
+    z-index:2000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    transition:.45s ease;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:600;
+}
+
+.close-menu{
+    position:absolute;
+    top:22px;
+    right:22px;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.mobile-menu-btn{
+    width:190px;
+    height:50px;
+    border-radius:40px;
+    background:#ff7b00;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px !important;
+    font-weight:700 !important;
+}
+
+/* HERO */
+
+.servicos-hero{
+    padding:180px 20px 90px;
+    text-align:center;
+    background:
+    radial-gradient(circle at center, rgba(255,123,0,.14), transparent 35%),
+    linear-gradient(180deg,#140b04,#05070a);
+}
+
+.servicos-hero h1{
+    font-size:72px;
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.servicos-hero h1 span{
+    color:#ff7b00;
+}
+
+.servicos-hero p{
+    font-size:22px;
+    color:#d7d7d7;
+}
+
+/* TRATAMENTOS */
+
+.tratamentos{
+    padding:90px 40px;
+    background:#05070a;
+}
+
+.servicos-img-box{
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,0,0,.35);
+}
+
+.servicos-img-box img{
+    width:100%;
+    display:block;
+    border-radius:22px;
+}
+
+/* ANTES E DEPOIS */
+
+.antes-depois{
+    width:100%;
+    padding:90px 40px;
+    background:
+    radial-gradient(circle at center, rgba(255, 123, 0, .14), transparent 35%),
+    linear-gradient(180deg, #140b04, #05070a);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.antes-img img{
+    width:100%;
+    border-radius:18px;
+}
+
+.antes-texto span{
+    color:#ff7b00;
+    font-size:18px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.antes-texto h2{
+    font-size:58px;
+    line-height:1.1;
+    margin:20px 0;
+    font-weight:900;
+}
+
+.antes-texto p{
+    font-size:19px;
+    line-height:1.8;
+    color:#d0d0d0;
+    margin-bottom:35px;
+}
+
+.btn-whats{
+    width:240px;
+    height:58px;
+    border-radius:50px;
+    background:#ff7b00;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-whats:hover{
+    background:#ff9326;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#05070a;
+    padding:80px 40px 45px;
+}
+
+.footer-container{
+    max-width:1300px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+}
+
+.footer-left h2{
+    color:#ff7b00;
+    font-size:64px;
+    line-height:1.05;
+    margin-bottom:30px;
+}
+
+.footer-btn{
+    width:200px;
+    height:50px;
+    border-radius:40px;
+    border:2px solid #ff7b00;
+    color:#ff7b00;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.footer-btn:hover{
+    background:#ff7b00;
+    color:#111;
+}
+
+.footer-info{
+    margin-bottom:28px;
+}
+
+.footer-info h3{
+    color:#ff7b00;
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.footer-info p{
+    font-size:17px;
+    line-height:1.8;
+}
+
+.social{
+    display:flex;
+    gap:16px;
+}
+
+.social a{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid #2d2d2d;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.social a:hover{
+    border-color:#ff7b00;
+    color:#ff7b00;
+}
+
+.direitos{
+    text-align:center;
+    margin-top:35px;
+    color:#b8b8b8;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .navbar{
+        height:74px;
+        padding:0 18px;
+    }
+
+    .nav-container{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+
+    .menu,
+    .nav-btn{
+        display:none;
+    }
+
+    .mobile-actions{
+        display:flex;
+    }
+
+    #logoMenu{
+        width:95px;
+    }
+
+    .servicos-hero{
+        padding:130px 20px 70px;
+    }
+
+    .servicos-hero h1{
+        font-size:42px;
+    }
+
+    .servicos-hero p{
+        font-size:17px;
+        line-height:1.5;
+    }
+
+    .tratamentos{
+        padding:50px 12px;
+    }
+
+    .servicos-img-box{
+        border-radius:14px;
+    }
+
+    .servicos-img-box img{
+        border-radius:14px;
+    }
+
+    .antes-depois{
+        grid-template-columns:1fr;
+        padding:70px 20px;
+    }
+
+    .antes-texto h2{
+        font-size:38px;
+    }
+
+    .antes-texto p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .btn-whats{
+        width:100%;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .footer-left h2{
+        font-size:48px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+    
+        <div class="logo">
+            <a href="index.html">
+            <img src="img/logo.webp" alt="Performance Film" id="logoMenu">
+            </a>
+        </div>
+
+        <nav class="menu">
+            <a href="servicos.html">Serviços</a>
+            <a href="quemsomos.html">Quem somos</a>
+            <a href="https://www.google.com/search?q=performancefilm" target="_blank">Conheça-nos (Google) </a>
+        </nav>
+
+        <a href="https://wa.me/5547997327311" class="nav-btn">
+            Agende aqui
+        </a>
+
+        <div class="mobile-actions">
+            <button id="menuToggle" class="menu-toggle">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button class="close-menu" id="closeMenu">✕</button>
+
+    <a href="servicos.html">Serviços</a>
+    <a href="quemsomos.html">Quem somos</a>
+    <a href="https://www.google.com/search?q=performancefilm" target="_blank">Conheça-nos</a>
+
+    <a href="https://wa.me/5547997327311" class="mobile-menu-btn">
+        Agende aqui
+    </a>
+
+</div>
+
+<section class="servicos-hero">
+
+    <h1>
+        Nossos <span>Serviços</span>
+    </h1>
+
+    <p>
+        Películas automotivas e residenciais com qualidade, proteção e acabamento premium.
+    </p>
+
+</section>
+
+<section class="tratamentos">
+
+    <div class="servicos-img-box">
+        <img src="img/servicos-performance.png" alt="Serviços Performance Film">
+    </div>
+
+</section>
+
+<section class="antes-depois">
+
+    <div class="antes-img">
+        <img src="img/antes-depois.png" alt="Resultado Performance Film">
+    </div>
+
+    <div class="antes-texto">
+
+        <span>ANTES E DEPOIS</span>
+
+        <h2>
+            Veja a diferença que a película faz
+        </h2>
+
+        <p>
+            Mais conforto térmico, bloqueio de raios UV, privacidade e visual moderno.
+            A Performance Film transforma seu veículo, residência ou empresa com acabamento profissional.
+        </p>
+
+        <a href="https://wa.me/5547997327311?text=Olá! Gostaria de agendar uma avaliação." class="btn-whats">
+            Agendar Avaliação
+        </a>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-left">
+
+            <h2>
+                Performance<br>
+                Film
+            </h2>
+
+            <a href="https://wa.me/5547997327311" class="footer-btn">
+                Entre em contato
+            </a>
+
+        </div>
+
+        <div class="footer-right">
+
+            <div class="footer-info">
+                <h3>Contato</h3>
+                <p>(47) 99732-7311 (fone / WhatsApp)</p>
+                <p>contato@performancefilm.com.br</p>
+            </div>
+
+            <div class="footer-info">
+                <h3>Endereço</h3>
+                <p>R. 2550, n°1143 - Centro</p>
+                <p>Balneário Camboriú - SC</p>
+            </div>
+
+            <div class="footer-info">
+
+                <h3>Siga-nos</h3>
+
+                <div class="social">
+                    <a href="#">G</a>
+                    <a href="#">◎</a>
+                    <a href="#">f</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="direitos">
+        © todos os direitos reservados
+    </p>
+
+</footer>
+
+<script>
+
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+if(menuToggle){
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+}
+
+if(closeMenu){
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+
+}
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+
+});
+
+</script>
+
+</body>
+</html>
