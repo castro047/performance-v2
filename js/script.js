@@ -35,32 +35,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnAgende = document.getElementById('servicoautomoveis');
     const btnOrcamentoGratis = document.getElementById('btnOrcamentoGratis');
-    const cardClareamento = document.getElementById('servicoClareamento');
-    const cardImplantes = document.getElementById('servicoImplantes');
+    const cardAutomoveis = document.getElementById('servicoAutomoveis');
+    const cardResidencial = document.getElementById('servicoResidencial');
 
     if (btnAgende) {
         btnAgende.addEventListener('click', function(e) {
             e.preventDefault();
-            abrirWhatsApp('Olá! Gostaria de agendar uma avaliação odontológica.');
+            abrirWhatsApp('Olá! Tudo bem? Vim pelo site da clínica e gostaria de agendar uma avaliação estética personalizada. Podem me passar os horários disponíveis?');
         });
     }
 
     if (btnOrcamentoGratis) {
         btnOrcamentoGratis.addEventListener('click', function(e) {
             e.preventDefault();
-            abrirWhatsApp('Olá! Gostaria de solicitar uma avaliação para tratamento odontológico.');
+            abrirWhatsApp('Olá! Gostaria de realizar uma avaliação estética e entender qual tratamento é mais indicado para o meu caso. Podem me ajudar?');
         });
     }
 
-    if (cardClareamento) {
-        cardClareamento.addEventListener('click', function() {
-            abrirWhatsApp('Olá! Gostaria de mais informações sobre clareamento dental.');
+    if (cardAutomoveis) {
+        cardAutomoveis.addEventListener('click', function() {
+            abrirWhatsApp('Olá! Tenho interesse em procedimentos faciais. Gostaria de saber mais sobre limpeza de pele, harmonização, botox, preenchimento e protocolos personalizados.');
         });
     }
 
-    if (cardImplantes) {
-        cardImplantes.addEventListener('click', function() {
-            abrirWhatsApp('Olá! Gostaria de mais informações sobre implantes dentários.');
+    if (cardResidencial) {
+        cardResidencial.addEventListener('click', function() {
+            abrirWhatsApp('Olá! Tenho interesse em tratamentos corporais. Gostaria de saber mais sobre protocolos para gordura localizada, celulite, flacidez e remodelação corporal.');
         });
     }
 
@@ -69,15 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const slide = document.querySelector('.slide');
 
     const imagensDesktop = [
-        'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1600&q=80',
-        'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80',
-        'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80'
+        'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80',
+        'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1600&q=80',
+        'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1600&q=80'
     ];
 
     const imagensMobile = [
-        'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=900&q=80'
+        'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80'
     ];
 
     let imagemAtual = 0;
